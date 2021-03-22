@@ -1,17 +1,17 @@
-import React from "react"; 
+import React from "react";
 
-class HornBeast extends React.Component{
-  render(){
+class HornBeast extends React.Component {
+  render() {
     return (
       <div>
         <h1> This is Heimdall the fourth most powerful Asgardian.</h1>
-        <p>
-        <img src={this.props.img } alt= 'Heimdall Brother to Lady Sif 4th most powerful Asgardian. The Horned Beast!' title= 'Heimdall Brother to Lady Sif 4th most powerful Asgardian. The Horned Beast!'/>
 
-        </p>
+        <h2>{this.props.title}</h2>
+        <img src={this.props.img_url} alt={this.props.alt} title={this.props.title} />
+        <p>{this.props.description}</p>
       </div>
     )
   }
 }
 
-export default HornBeast; 
+export default HornBeast;
