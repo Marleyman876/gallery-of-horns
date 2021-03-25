@@ -1,15 +1,21 @@
 import React from "react";
 import HornBeast from './hornbeast'
-import logo from '../horns.jpeg'
+import data from './data.json'
+
 class Main extends React.Component {
   render() {
     return (
       <div>
-        <HornBeast title="Heimdall Brother to Lady Sif 4th most powerful Asgardian. The Horned Beast!" img_url="https://sciencefiction.com/wp-content/uploads/2019/08/Idris-Elba-Heimdall-MCU-e1565826255420.jpg" descrition="GateKeeper of Asgard, best friend of Thor!"/>
+        {data.map(beast => {
+          return (
+            <HornBeast
+              title={beast.title}
+              img_url={beast.image_url}
+              descrition={beast.description} />
 
-        <HornBeast title="Heimdall Brother to Lady Sif 4th most powerful Asgardian. The Horned Beast!" img_url="https://sciencefiction.com/wp-content/uploads/2019/08/Idris-Elba-Heimdall-MCU-e1565826255420.jpg" descrition="GateKeeper of Asgard, best friend of Thor!"/>
-        
-
+          );
+        })
+        };
       </div>
     )
   }
