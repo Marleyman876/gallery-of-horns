@@ -1,22 +1,25 @@
 import React from "react";
 import HornBeast from './hornbeast'
 import data from './data.json'
+import CardColumns from "react-bootstrap/CardColumns";
 
 class Main extends React.Component {
   render() {
     return (
-      <div>
+      <CardColumns>
+
         {data.map(beast => {
           return (
             <HornBeast
               title={beast.title}
               img_url={beast.image_url}
-              descrition={beast.description} />
+              description={beast.description} />
 
           );
         })
         };
-      </div>
+
+      </CardColumns>
     )
   }
 }
