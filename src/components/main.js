@@ -1,11 +1,13 @@
 import React from "react";
 import HornBeast from './hornbeast'
 import data from './data.json'
+import CardColumns from "react-bootstrap/CardColumns";
 
 class Main extends React.Component {
   render() {
     return (
-      <div>
+      <CardColumns>
+
         {data.map(beast => {
           return (
             <HornBeast
@@ -16,7 +18,8 @@ class Main extends React.Component {
           );
         })
         };
-      </div>
+
+      </CardColumns>
     )
   }
 }

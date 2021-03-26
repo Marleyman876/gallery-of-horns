@@ -1,6 +1,8 @@
 //import { Button } from "bootstrap";
 import { Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import React from "react";
+
 
 //Create state inside of the HornedBeast component that keeps track of the number of times an image was clicked.
 class HornBeast extends React.Component {
@@ -17,35 +19,47 @@ class HornBeast extends React.Component {
 
   vote = () => {
     this.setState({ numberOfClicks: this.state.numberOfClicks + 1 });
-    this.setState({ numberOfHearts:'❤️' });
+    this.setState({ numberOfHearts: '❤️' });
   }
 
   render() {
     return (
-      <div key={this.props.keyword} >
-
-        <h1> Horn Beasties</h1>
-
-        <h2>{this.props.title}</h2>
-        <p>{this.state.numberOfClicks}
+      <Card>
+        <Card.Img variant="top" src={this.props.img_url } Card style={{ width: '100%' }}></Card.Img>
+        <Card.Body>
+          <Card.Title>{this.props.Title}</Card.Title>
+          <Card.Text>
+            {this.props.description}
+          </Card.Text>
+        </Card.Body>
+        <Card.Footer>
+          {this.state.numberOfClicks}
           {this.state.numberOfHearts}
-        
-        </p>
 
-        <img src={this.props.img_url}
-        description={this.props.description} 
-        title={this.props.title} 
-        alt={this.props.title}
-        />
+          <Button onClick={this.vote} >Vote For this Beast!</Button>
 
-        <p>{this.props.description}</p>
+        </Card.Footer>
+      </Card>
 
-        <Button onClick={this.vote}
+      // <div key={this.props.keyword} >
 
+      //   <h1> Horn Beasties</h1>
 
-        >Vote For this Beast!</Button>
+      //   <h2>{this.props.title}</h2>
+      //   <p>{this.state.numberOfClicks}
+      //     {this.state.numberOfHearts}
 
-      </div >
+      //   </p>
+
+      //   <img src={this.props.img_url}
+      //   description={this.props.description} 
+      //   title={this.props.title} 
+      //   alt={this.props.title}
+      //   />
+
+      //   <p>{this.props.description}</p>
+
+      // </div >
     )
   }
 }
