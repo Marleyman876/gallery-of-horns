@@ -1,5 +1,4 @@
-//import { Button } from "bootstrap";
-import { Button } from "react-bootstrap";
+
 import { Card } from "react-bootstrap";
 import React from "react";
 
@@ -20,12 +19,13 @@ class HornBeast extends React.Component {
   vote = () => {
     this.setState({ numberOfClicks: this.state.numberOfClicks + 1 });
     this.setState({ numberOfHearts: '❤️' });
+    this.props.showBeast(this.props.title)
   }
 
   render() {
     return (
-      <Card>
-        <Card.Img variant="top" src={this.props.img_url } Card style={{ width: '100%' }}></Card.Img>
+      <Card onClick={this.vote}>
+        <Card.Img variant="top" src={this.props.img_url} Card style={{ width: '100%' }}></Card.Img>
         <Card.Body>
           <Card.Title>{this.props.Title}</Card.Title>
           <Card.Text>
@@ -36,30 +36,8 @@ class HornBeast extends React.Component {
           {this.state.numberOfClicks}
           {this.state.numberOfHearts}
 
-          <Button onClick={this.vote} >Vote For this Beast!</Button>
-
         </Card.Footer>
       </Card>
-
-      // <div key={this.props.keyword} >
-
-      //   <h1> Horn Beasties</h1>
-
-      //   <h2>{this.props.title}</h2>
-      //   <p>{this.state.numberOfClicks}
-      //     {this.state.numberOfHearts}
-
-      //   </p>
-
-      //   <img src={this.props.img_url}
-      //   description={this.props.description} 
-      //   title={this.props.title} 
-      //   alt={this.props.title}
-      //   />
-
-      //   <p>{this.props.description}</p>
-
-      // </div >
     )
   }
 }
