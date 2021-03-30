@@ -19,13 +19,16 @@ class HornBeast extends React.Component {
   vote = () => {
     this.setState({ numberOfClicks: this.state.numberOfClicks + 1 });
     this.setState({ numberOfHearts: '❤️' });
+  }
+
+  handleModal = () => {
     this.props.showBeast(this.props.title)
   }
 
   render() {
     return (
-      <Card onClick={this.vote}>
-        <Card.Img variant="top" src={this.props.img_url} Card style={{ width: '100%' }}></Card.Img>
+      <Card onClick={this.handleModal}>
+        <Card.Img onClick={this.vote} variant="top" src={this.props.img_url} Card style={{ width: '100%' }}></Card.Img>
         <Card.Body>
           <Card.Title>{this.props.Title}</Card.Title>
           <Card.Text>
