@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import React from "react";
 
 
-//Create state inside of the HornedBeast component that keeps track of the number of times an image was clicked.
+
 class HornBeast extends React.Component {
 
   constructor(props) {

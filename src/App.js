@@ -9,13 +9,14 @@ import SelectedBeast from './components/SelectedBeast.js'
 
 
 
-
 class App extends Component {
   constructor() {
   super()
   this.state = {
     displayProp: false,
     selectBeast:{},
+    data:data,
+    allBeast:data,
 
   }
 }
@@ -27,6 +28,14 @@ class App extends Component {
     this.setState({selectBeast: beast, displayProp:true});
   }
 
+  //function to filter 
+  
+  filterBeast =(hornsNum) =>{
+    const hornsArr = this.state.data.filter(beast => hornsNum === beast.horns);
+
+    this.setState({allBeast:hornsArr});
+  }
+
   flipAbeast = () => {
     this.setState({displayProp:false});
   }
@@ -35,7 +44,7 @@ class App extends Component {
     return (
       <div>
       <Header />
-      <Main allBeast={data}
+      <Main allBeast={this.state.allBeast}
         showBeast={this.showBeast}/>
         <SelectedBeast singleBeast={this.state.selectBeast} hide={this.state.displayProp} flipAbeast={this.flipAbeast}/>
       <Footer/>

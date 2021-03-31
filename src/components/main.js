@@ -1,12 +1,20 @@
 import React from "react";
+import FormComponent from './form-component.js'
+
 import HornBeast from './hornbeast'
 import CardColumns from "react-bootstrap/CardColumns";
+//import Form from 'react-bootstrap/Form';
+
+
 
 class Main extends React.Component {
   render() {
     return (
-      <CardColumns>
+      <>
+      <FormComponent/>
 
+
+      <CardColumns>
         {this.props.allBeast.map(beast => {
           return (
             <HornBeast
@@ -20,6 +28,7 @@ class Main extends React.Component {
         };
 
       </CardColumns>
+      </>
     )
   }
 }
