@@ -1,45 +1,45 @@
-import React from "react";
-import { Container } from "react-bootstrap";
-import {Form} from "react-bootstrap";
+import React from 'react';
+import Container from "react-bootstrap/Container";
+import  Form  from "react-bootstrap/Form";
 
-class FormComponent extends React.Component{
+class FormComponent extends React.Component {
 
-  // constructor(props){
-  //   super(props);
+  handleForm = event => {
+    if (event.target.value === "Show All") {
+      return this.props.filterBeast("all");
+    } else {
+      const hornSelect = +event.target.value;
+      const hornsArr = this.props.allBeast.filter(beast => beast.horns === hornSelect);
+      this.props.filterBeast(hornsArr);
 
-  //   this.state = {
-  //     horn: 'numHorns'
-  //   };
-  // }
+    }
 
-  // handleForm = event =>{
-  //  this.setState({
-  //    username: event.target.value
-  //  });
-   
-  // }
-  
-  // handleformHorn = horn =>{
-  //   if(horn)
-  // }
-  
+  }
+
+
   render() {
-  
-    return(
+
+    return (
       <>
-      <Container>
-        <Form>
-          <Form.Group>
-            <Form.Label>Select the Number of Horns you want to see:</Form.Label>
-            <Form.Control type='text'/>
+        <Container>
+          <Form>
+            <Form.Group>
+              <Form.Label>Select the Number of Horns you want to see:</Form.Label>
+              <Form.Control as="select"
+                onChange={this.handleForm}>
+                <option>Show All</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>100</option>
+              </Form.Control>
+            </Form.Group>
 
-          </Form.Group>
-
-        </Form>
-      </Container> 
+          </Form>
+        </Container>
       </>
     )
-  };
+  }
 }
 
 export default FormComponent;

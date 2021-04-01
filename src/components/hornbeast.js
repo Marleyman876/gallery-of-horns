@@ -1,8 +1,5 @@
-
-import { Card } from "react-bootstrap";
 import React from "react";
-
-
+import Card from "react-bootstrap/Card";
 
 class HornBeast extends React.Component {
 
@@ -28,17 +25,21 @@ class HornBeast extends React.Component {
   render() {
     return (
       <Card onClick={this.handleModal}>
-        <Card.Img onClick={this.vote} variant="top" src={this.props.img_url} Card style={{ width: '100%' }}></Card.Img>
+        <Card.Img 
+          onClick={this.vote} 
+          variant="top" src={this.props.img_url} style={{ width: '100%' }}>
+        </Card.Img>
+
         <Card.Body>
           <Card.Title>{this.props.Title}</Card.Title>
           <Card.Text>
             {this.props.description}
           </Card.Text>
         </Card.Body>
+
         <Card.Footer>
           {this.state.numberOfClicks}
           {this.state.numberOfHearts}
-
         </Card.Footer>
       </Card>
     )
